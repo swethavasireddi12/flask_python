@@ -1,0 +1,163 @@
+{% extends 'base.html' %}
+{% block title %}
+  Employee Master Page
+{% endblock %}
+
+{% block content %}
+<head>
+    <style>
+input {
+width: 70%;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  background-color: white;
+  background-image: url('searchicon.png');
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  padding: 12px 20px 12px 40px;
+}
+</style>
+</head>
+        <body >
+         <div>
+             <form method="POST" action="{{url_for('search_page')}}" class="d-flex">
+                 {{form.hidden_tag()}}
+                 <input class="form-control me-2" type="search"
+                         placeholder="Search by FirstName" aria-label="Search" name="searched">
+                 <input class="form-control me-2" type="search"
+                         placeholder="Search by Address" aria-label="Search" name="searching">
+             <button class="btn btn-outline-secondary" type="submit">Search</button>
+             </form>
+        </div>
+        </body>
+         <!--<br>
+         <div class="container">
+             <div class="row">
+                 <div class="col md-12">
+                     <div class="jumbotron p-3">
+                         <h2>Manage<b>Employees</b> <button type="button" class="btn btn-success float-right"
+                         data-toggle="modal" data-target="#mymodal">Add new Employee</button></h2> -->
+
+
+                         <table class="table table-hover table-dark">
+        <thead>
+            <tr>
+                <!-- Your Columns HERE -->
+                <th scope="col">ID</th>
+                <th scope="col">FirstName</th>
+                <th scope="col">LastName</th>
+                <th scope="col">Email</th>
+                <!-- <th scope="col">Action</th>-->
+
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Your rows inside the table HERE: -->
+            {% for item in users %}
+                <tr>
+                    <td>{{ item.id }}</td>
+
+                    <td>{{ item.FirstName }}</td>
+
+                    <td>{{ item.LastName }}</td>
+
+                    <td>{{ item.email_address}}</td>
+
+                    <!-- <td><a href="" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#modaledit">Edit</a>
+                        <a href="" class="btn btn-danger btn-xs" onclick="return confirm('Are you Sure To Delete')">Delete</a>
+                    </td> -->
+
+
+
+                </tr>
+            {% endfor %}
+
+        </tbody>
+                             <!-- <div id="modaledit" class="modal.fade" role="dialog">
+                                 <div class="modal-dialog">
+                                     <div class="modal-content">
+                                         <div class="modal-header">
+                                             <h4 class="modal-title">Update Info</h4>
+                                         </div>
+                                         <div class="modal-body">
+                                             <form action="" method="POST">
+                                                 <div class="form-group">
+                                                     <label>FirstName:</label>
+                                                     <input type="hidden"  name="FirstName" value="id">
+                                                     <input type="text" class="form-control" name="FirstName" value="parwiz">
+
+
+                                                 </div>
+
+                                                 <div class="form-group">
+                                                     <label>LastName:</label>
+                                                     <input type="text" class="form-control" name="LastName" value="parw">
+                                                 </div>
+
+                                                 <div class="form-group">
+                        <label>email_address:</label>
+                        <input type="text" class="form-control" name="Email" value="par@gmail.com">
+
+                    </div>
+                    <div class="form-group">
+
+                        <button class="btn btn-primary" type="submit">Update</button>
+
+                    </div>
+                </form>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> -->
+
+    </table>
+                     <!-- </div>
+                     <div id="mymodal" class="modal.fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Add Employee</h4>
+            </div>
+            <div class="modal-body">
+                <form action="" method="POST">
+                    <div class="form-group">
+                        <label>FirstName:</label>
+                        <input type="text" class="form-control" name="FirstName" required="1">
+
+                    </div>
+                    <div class="form-group">
+                        <label>LastName:</label>
+                        <input type="text" class="form-control" name="LastName" required="1">
+
+                    </div>
+                    <div class="form-group">
+                        <label>email_address:</label>
+                        <input type="email" class="form-control" name="Email" required="1">
+
+                    </div>
+                    <div class="form-group">
+
+                        <button class="btn btn-primary" type="submit">Add Employee</button>
+
+                    </div>
+                </form>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+                 </div>
+             </div>
+
+         </div> -->
+
+
+
+{% endblock %}

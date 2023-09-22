@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% block title %}
+  Employee Details Page
+{% endblock %}
+
+{% block content %}
+<head>
+<style>
+h1{text-align:center
+}
+table, th, td {
+  border: 3px solid black;
+  border-collapse: collapse;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  padding-right: 100px;
+  border-style: solid;
+}
+table.center {
+  margin-left: auto;
+  margin-right: auto;
+</style>
+</head>
+       <body style="background-color:white" >
+      <h1 >Welcome!!!!{{ current_user.username}}</h1><br>
+      <table class ="center" style="width:60%;align:center">
+          <tr>
+              <td><h4>Property</h4></td>
+              <td><h4>Details</h4></td></tr>
+          <tr>
+              <td><h4>UserName</h4></td>
+              <td><h4>{{ current_user.username}}</h4></td></tr>
+          <tr>
+              <td><h4>First Name</h4></td>
+              <td><h4>{{ current_user.FirstName}}</h4></td></tr>
+          <tr>
+              <td><h4>Last Name</h4></td>
+              <td><h4>{{ current_user.LastName}}</h4></td></tr>
+          <tr>
+              <td><h4>Email</h4></td>
+              <td><h4>{{ current_user.email_address}}</h4></td></tr>
+          <tr>
+              <td><h4>Address</h4></td>
+              <td><h4>{{ current_user.Address}}</h4></td></tr>
+          <tr>
+              <td><h4>PhoneNumber</h4></td>
+              <td><h4>{{ current_user.PhoneNumber}}</h4></td></tr>
+
+      </table>
+      </body>
+
+
+
+{% endblock %}

@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% block title %}
+Register Page
+{% endblock %}
+
+{% block content %}
+<body class="text-center">
+    <div class="container">
+        <form method="POST" class="form-register" style="color:white">
+            <br>
+            {{ form.hidden_tag() }}
+            <img class="mb-4" src="https://th.bing.com/th/id/OIP.vslpEKQmitOSjzY7GCXkZAD6D6?pid=ImgDet&rs=1.png" alt="" style="width:200px;height:200px;">
+            <h1 class="h3 mb-3 font-weight-normal">
+                New Employee!!! Please Create your Account
+            </h1>
+            <br>
+            {{ form.username.label() }}
+            {{ form.username(class="form-control", placeholder="User Name") }}
+
+            {{ form.FirstName.label() }}
+            {{ form.FirstName(class="form-control", placeholder="FirstName") }}
+
+            {{ form.LastName.label() }}
+            {{ form.LastName(class="form-control", placeholder="LastName") }}
+
+            {{ form.email_address.label() }}
+            {{ form.email_address(class="form-control", placeholder="Email Address") }}
+
+            {{ form.PhoneNumber.label() }}
+            {{ form.PhoneNumber(class="form-control", placeholder="Phone Number") }}
+
+            {{ form.DOB.label() }}
+            {{ form.DOB(class="form-control", placeholder="DOB") }}
+
+            {{ form.Address.label() }}
+            {{ form.Address(class="form-control", placeholder="Address") }}
+
+            {{ form.password1.label() }}
+            {{ form.password1(class="form-control", placeholder="Password") }}
+
+            {{ form.password2.label() }}
+            {{ form.password2(class="form-control", placeholder="Confirm Password") }}
+
+            {{ form.role.label() }}
+            {{ form.role(class="form-control", placeholder="Role") }}
+
+            <br>
+
+            {{ form.submit(class="btn btn-lg btn-block btn-primary") }}
+
+        </form>
+    </div>
+</body>
+{% endblock %}

@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+{% block title %}
+    Search Page
+{% endblock %}
+{% block content %}
+<body style="background-color:white">
+     <br>
+      <h2>You searched with details FirstName and Address</h2>
+
+
+      </body>
+      <table class="table table-hover table-dark">
+        <thead>
+        <br>
+            <tr>
+                <!-- Your Columns HERE -->
+                <th scope="col">ID</th>
+                <th scope="col">FirstName</th>
+                <th scope="col">LastName</th>
+                <th scope="col">Email</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Your rows inside the table HERE: -->
+            {% for role in posts %}
+                <tr>
+                    <td>{{ role.id }}</td>
+
+                    <td>{{ role.FirstName }}</td>
+
+                    <td>{{ role.LastName }}</td>
+
+                    <td>{{ role.email_address}}</td>
+
+
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+<table class="table table-hover table-dark">
+        <thead>
+        <br>
+            <tr>
+                <!-- Your Columns HERE -->
+                <th scope="col">ID</th>
+                <th scope="col">FirstName</th>
+                <th scope="col">LastName</th>
+                <th scope="col">Email</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Your rows inside the table HERE: -->
+            {% for role in post %}
+                <tr>
+                    <td>{{ role.id }}</td>
+
+                    <td>{{ role.FirstName }}</td>
+
+                    <td>{{ role.LastName }}</td>
+
+                    <td>{{ role.email_address}}</td>
+
+
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
