@@ -12,7 +12,7 @@ pipeline {
        steps {      
         bat 'docker build -t flask_jenkins:v2 .'          
       }
-     
+    
         }
     stage('Run Image') {     
       steps {            
