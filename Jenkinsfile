@@ -1,45 +1,22 @@
 pipeline {
   agent any
   stages {
+    stage('Checkout') {           
+      steps {                              
+        checkout scm          
+      }   
+    }
     stage('Build') {
-      parallel {
-        stage('Build') {
-          steps {
-            sh 'echo "building the repo"'
-          }
+
+       steps {      
+        bat 'docker build -t flask_jenkins:v1 .'          
+      }
+     
         }
-      }
+    stage('Run Image') {     
+      steps {            
+        bat 'docker run -d -p 5000:5000 --name container3 flask:v1'          
+      }       
     }
-
-    stage('Test') {
-      steps {
-        sh 'python3 test_app.py'
-        input(id: "Deploy Gate", message: "Deploy ${params.project_name}?", ok: 'Deploy')
-      }
-    }
-
-    stage('Deploy')
-    {
-      steps {
-        echo "deploying the application"
-      }
-    }
-
   }
-
-  post {
-        always {
-            echo 'The pipeline completed'
-            junit allowEmptyResults: true, testResults:'**/test_reports/*.xml'
-        }
-        success {
-            
-            sh "sudo nohup python3 app.py > log.txt 2>&1 &"
-            echo "Flask Application Up and running!!"
-        }
-        failure {
-            echo 'Build stage failed'
-            error('Stopping early…')
-        }
-      }
 }
